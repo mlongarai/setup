@@ -111,6 +111,11 @@ defaults write com.apple.finder AppleShowAllFiles -string YES
 # Completely Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
+# Screenshot folder
+mkdir -p ~/Documents/print
+defaults write com.apple.screencapture location ~/Documents/print
+defaults write com.apple.screencapture type jpg
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Kill affected apps
@@ -138,6 +143,7 @@ brew install git
 brew install python
 brew install curl
 brew install stats
+brew install --cask sourcetree
 
 echo "Installing Oh My Zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -172,18 +178,17 @@ brew install --cask whatsapp
 brew install --cask skype
 brew install --cask zoomus
 brew install --cask slack
-brew install --cask sourcetree
 brew install --cask tunnelblick
 brew install --cask vanilla
 brew install --cask microsoft-office
 brew install --cask deepl
-
 
 echo "Installing Apps from the App Store..."
 mas install 937984704 # Amphetamine
 mas install 1274495053 # Microsoft To Do
 mas install 485812721 # TweetDeck
 mas install 1450640351 # Lightweight PDF
+mas install 1532419400 # MeetingBar (Zoom)
 
 echo "Setting ZSH highlighting & autosuggestions..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
@@ -199,4 +204,4 @@ echo "Everything is ready. Enjoy your new Mac!"
 echo "Obs. Note that some of these changes require a logout/restart to take effect."
 
 # Apps missing: 
-# Need to automate: Screenshot folder, ssh keys, git-ssh, mackup config
+# Need to automate: mackup config
